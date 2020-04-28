@@ -51,30 +51,6 @@
             border: 1px solid black;
             border-radius: 5px;
         }
-        .orlogin{
-            width: 50%; 
-            text-align: center; 
-            border-bottom: 1px solid #000; 
-            line-height: 0.1em;
-            margin: 10px 0 25px 90px; 
-        }
-        .orlogin span{
-            background:#fff; 
-            padding:0 10px; 
-        }
-        .logo{
-            display: flex;
-            justify-content: space-evenly;
-            margin-bottom: 25px;
-        }
-        .sosmed{
-            border: 1px solid black;
-            padding: 5px 5px 5px 5px;
-            border-radius: 100%
-        }
-        .forgotpassword{
-            margin-left: 10px;
-        }
     </style>
     <title>Register to T-tip</title>
   </head>
