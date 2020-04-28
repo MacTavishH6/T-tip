@@ -105,8 +105,8 @@
                   </div>
                   <div class="form-group button">
                     <button type="submit" class="btn">Login</button>
-                    <a href="#">
-                        <button class="btn">Register</button>
+                    <a href="/register">
+                        <div class="btn" style="color: black">Register</div>
                     </a>
                   </div>
                 </form>

@@ -8,9 +8,47 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
+    <style>
+      .navbar{
+        width: 100%;
+        height: 40px;
+        background: url("{{ URL::asset('images/LoginPageBackground.jpg') }}");
+        background-position-x: 50%;
+        background-position-y: 25%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .round{
+        border: 1px solid black;
+        border-radius: 100%;
+      }
+      .magnifier{
+        background-color: white;
+      }
+    </style>
     <title>@yield('title')</title>
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">T-tip</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control" type="search" size="40" placeholder="Search" aria-label="Search">
+        <a href="#" class="form-control mr-sm-2 magnifier"><img src="{{ URL::asset('images/magnifier_icon.png') }}" width="20px" alt=""></a>
+      </form>
+
+      <div class="right">
+        <a href="#"><img src="{{ URL::asset('images/plus.png') }}" width="20px" alt=""></a>
+        <a href="#"><img src="{{ URL::asset('images/email.png') }}" width="20px" alt=""></a>
+        <a href="#"><img src="{{ URL::asset('images/WishlistIcon.png') }}" alt="" width="20px"></a>
+        <a href="#"><img src="{{ URL::asset('images/Cart.png') }}" alt="" width="20px"></a>
+        <a href="#" class="round"><img src="{{ URL::asset('images/HumanIcon.png') }}" alt="" width="20px"></a>
+        @yield('username')
+      </div>
+    </nav>
     @yield('content')
 
     <!-- Optional JavaScript -->
