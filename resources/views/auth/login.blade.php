@@ -97,11 +97,11 @@
                 <form class="px-4 py-3 mt-5">
                   <div class="form-group">
                     <label for="exampleDropdownFormEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleDropdownFormPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" required>
                   </div>
                   <div class="form-group button">
                     <button type="submit" class="btn">Login</button>
