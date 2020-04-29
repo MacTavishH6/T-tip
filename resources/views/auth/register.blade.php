@@ -71,22 +71,38 @@
                 <div class="round-upper"></div>
             </div>
             <div class="login-form">
-                <form class="px-5 py-5">
+                <form class="px-5 mt-2" action="/register/create" method="POST">
+                  @csrf
                   <div class="form-group">
-                    <label for="exampleDropdownFormEmail1">Nama Lengkap</label>
-                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" required>
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" placeholder="John Doe" value="{{ old('nama') }}">
+                    @error('nama')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
                   </div>
                   <div class="form-group">
-                    <label for="exampleDropdownFormEmail1">Email</label>
-                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" required>
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="email@example.com" value="{{ old('email') }}">
+                    @error('email')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
                   </div>
                   <div class="form-group">
-                    <label for="exampleDropdownFormPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" required>
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" placeholder="Password">
+                    @error('password')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
                   </div>
                   <div class="form-group">
-                    <label for="exampleDropdownFormPassword1">Confirm Password</label>
-                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" required>
+                    <label for="password_confirmation">Confirm Password</label>
+                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Password">
                   </div>
                   <div class="form-group button">
                     <button type="submit" class="btn">Submit</button>
@@ -104,5 +120,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
   </body>
 </html>

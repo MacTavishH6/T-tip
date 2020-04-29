@@ -93,15 +93,36 @@
                 <div class="round-upper"></div>
                 <div class="round-upper"></div>
             </div>
-            <div class="login-form">
-                <form class="px-4 py-3 mt-5">
+            <div class="login-form mt-5">
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+                <form class="px-4 mb-3" action="/login/auth" method="POST">
+                    @csrf
                   <div class="form-group">
-                    <label for="exampleDropdownFormEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" required>
+                    <label for="email">Email address</label>
+                  <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="email@example.com" value="{{Session::get('email')}}">
+                    @error('email')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
                   </div>
                   <div class="form-group">
-                    <label for="exampleDropdownFormPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" required>
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" placeholder="Password">
+                    @error('password')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
                   </div>
                   <div class="form-group button">
                     <button type="submit" class="btn">Login</button>

@@ -16,9 +16,13 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/login', function () {
-    return view('auth/login');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+Route::get('/login', 'AuthController@login');
+Route::get('/register', 'AuthController@create');
+Route::post('/login/auth', 'AuthController@loginuser');
+Route::post('/register/create', 'AuthController@store');
+
+Route::get('/login/auth/{id}', 'AuthController@checkUser');
+Route::get('/login/{id}/success', 'AuthController@createSession');
