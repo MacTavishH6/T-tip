@@ -104,11 +104,16 @@
                         {{ session('error') }}
                     </div>
                 @endif
+                @if (session('alert'))
+                    <div class="alert alert-danger">
+                        {{ session('alert') }}
+                    </div>
+                @endif
                 <form class="px-4 mb-3" action="/login/auth" method="POST">
                     @csrf
                   <div class="form-group">
                     <label for="email">Email address</label>
-                  <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="email@example.com" value="{{Session::get('email')}}">
+                  <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="email@example.com" value="@if(Session::get('email')) {{Session::get('email')}}@endif {{ old('email') }}">
                     @error('email')
                     <div class="invalid-feedback">
                         {{$message}}

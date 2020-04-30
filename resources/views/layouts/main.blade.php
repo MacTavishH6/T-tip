@@ -22,10 +22,27 @@
         border: 1px solid black;
         border-radius: 100%;
       }
+      .searchbar{
+        margin-left: 225px;
+      }
       .magnifier{
         background-color: white;
       }
+      .dropdown-menu{
+        right: 0;
+        left: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .btn{
+        background-color: aliceblue;
+        font-size: 10px;
+      }
+      .dropspan{
+        font-size: 10px;
+      }
     </style>
+    @yield('style')
     <title>@yield('title')</title>
   </head>
   <body>
@@ -36,7 +53,7 @@
       </button>
     
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control" type="search" size="40" placeholder="Search" aria-label="Search">
+        <input class="form-control searchbar" type="search" size="40" placeholder="Search" aria-label="Search">
         <a href="#" class="form-control mr-sm-2 magnifier"><img src="{{ URL::asset('images/magnifier_icon.png') }}" width="20px" alt=""></a>
       </form>
 
@@ -45,11 +62,25 @@
         <a href="#"><img src="{{ URL::asset('images/email.png') }}" width="20px" alt=""></a>
         <a href="#"><img src="{{ URL::asset('images/WishlistIcon.png') }}" alt="" width="20px"></a>
         <a href="#"><img src="{{ URL::asset('images/Cart.png') }}" alt="" width="20px"></a>
-        <a href="#" class="round"><img src="{{ URL::asset('images/HumanIcon.png') }}" alt="" width="20px"></a>
-        @yield('username')
+        <div class="dropdown d-inline-block">
+          <a class="btn dropdown-toggle" type="Link" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="{{ URL::asset('images/HumanIcon.png') }}" alt="" width="20px"> @yield('nama')
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <span class="dropspan">Hi, @yield('nama')!</span>
+            <a class="dropdown-item" href="#">View Profile</a>
+            <a class="dropdown-item" href="#">Pembelian</a>
+            <a class="dropdown-item" href="#">Buka Jastip</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </div>
+      </div>
       </div>
     </nav>
-    @yield('content')
+    @yield('filter')
+    <div class="container-fluid homecontent">
+      @yield('content')
+    </div>
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

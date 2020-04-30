@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -11,6 +12,9 @@ class AuthController extends Controller
 {
     public function login()
     {
+        if(Session::get('id')){
+            return view('index');
+        }
         return view('auth.login');
     }
     
@@ -26,12 +30,19 @@ class AuthController extends Controller
 
         $data = User::where('email', $email)->first();
         if($data && Hash::check($password,$data->password)){
-            return 'berhasil!';
+            Session::put('id',$data->id);
+            Session::put('nama',$data->nama);
+            return redirect('/');
         }
         else{
             return redirect('/login')->with('error','Email atau Password salah!')->with(['email' => $email]);
         }
 
+    }
+
+    public function logout(){
+        Session::flush();
+        return redirect('login')->with('alert','Kamu sudah logout');
     }
 
     /**
